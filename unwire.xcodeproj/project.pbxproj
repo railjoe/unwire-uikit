@@ -30,6 +30,16 @@
 		39FE60C229E41FB2006FE94A /* SearchMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60C129E41FB2006FE94A /* SearchMusic.swift */; };
 		39FE60C429E41FCB006FE94A /* SearchMusicImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60C329E41FCB006FE94A /* SearchMusicImpl.swift */; };
 		39FE60C629E41FFF006FE94A /* PublisherAsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60C529E41FFF006FE94A /* PublisherAsResult.swift */; };
+		39FE60CD29E4214D006FE94A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60CB29E4214D006FE94A /* SearchViewController.swift */; };
+		39FE60CE29E4214D006FE94A /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39FE60CC29E4214D006FE94A /* SearchViewController.xib */; };
+		39FE60D029E4217E006FE94A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60CF29E4217E006FE94A /* SearchViewModel.swift */; };
+		39FE60D229E421B4006FE94A /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60D129E421B4006FE94A /* SearchCoordinator.swift */; };
+		39FE60D429E4229B006FE94A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60D329E4229B006FE94A /* Coordinator.swift */; };
+		39FE60D629E422C8006FE94A /* UIViewControllerFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60D529E422C8006FE94A /* UIViewControllerFromNib.swift */; };
+		39FE60D829E422DE006FE94A /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60D729E422DE006FE94A /* ReusableView.swift */; };
+		39FE60DA29E422F5006FE94A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60D929E422F5006FE94A /* UITableView.swift */; };
+		39FE60DE29E42337006FE94A /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE60DC29E42337006FE94A /* SearchResultTableViewCell.swift */; };
+		39FE60DF29E42337006FE94A /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39FE60DD29E42337006FE94A /* SearchResultTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +79,16 @@
 		39FE60C129E41FB2006FE94A /* SearchMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusic.swift; sourceTree = "<group>"; };
 		39FE60C329E41FCB006FE94A /* SearchMusicImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicImpl.swift; sourceTree = "<group>"; };
 		39FE60C529E41FFF006FE94A /* PublisherAsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherAsResult.swift; sourceTree = "<group>"; };
+		39FE60CB29E4214D006FE94A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		39FE60CC29E4214D006FE94A /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		39FE60CF29E4217E006FE94A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		39FE60D129E421B4006FE94A /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		39FE60D329E4229B006FE94A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		39FE60D529E422C8006FE94A /* UIViewControllerFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerFromNib.swift; sourceTree = "<group>"; };
+		39FE60D729E422DE006FE94A /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		39FE60D929E422F5006FE94A /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		39FE60DC29E42337006FE94A /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		39FE60DD29E42337006FE94A /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +133,7 @@
 				39FE609229E4197A006FE94A /* core */,
 				39FE609C29E41A40006FE94A /* data */,
 				39FE60BA29E41E9C006FE94A /* domain */,
+				39FE60C729E42104006FE94A /* presentation */,
 				39FE606229E417D5006FE94A /* AppDelegate.swift */,
 				39FE606B29E417D8006FE94A /* Assets.xcassets */,
 				39FE606D29E417D8006FE94A /* LaunchScreen.storyboard */,
@@ -134,6 +155,7 @@
 			children = (
 				39FE609329E4197E006FE94A /* network */,
 				39FE60AD29E41CAA006FE94A /* extensions */,
+				39FE60D329E4229B006FE94A /* Coordinator.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -185,6 +207,9 @@
 			children = (
 				39FE60AE29E41CCC006FE94A /* StringUrlEncoded.swift */,
 				39FE60C529E41FFF006FE94A /* PublisherAsResult.swift */,
+				39FE60D529E422C8006FE94A /* UIViewControllerFromNib.swift */,
+				39FE60D729E422DE006FE94A /* ReusableView.swift */,
+				39FE60D929E422F5006FE94A /* UITableView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -223,6 +248,35 @@
 				39FE60C329E41FCB006FE94A /* SearchMusicImpl.swift */,
 			);
 			path = usecases;
+			sourceTree = "<group>";
+		};
+		39FE60C729E42104006FE94A /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				39FE60C829E42110006FE94A /* search */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		39FE60C829E42110006FE94A /* search */ = {
+			isa = PBXGroup;
+			children = (
+				39FE60D129E421B4006FE94A /* SearchCoordinator.swift */,
+				39FE60CB29E4214D006FE94A /* SearchViewController.swift */,
+				39FE60CC29E4214D006FE94A /* SearchViewController.xib */,
+				39FE60CF29E4217E006FE94A /* SearchViewModel.swift */,
+				39FE60DB29E42315006FE94A /* cells */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		39FE60DB29E42315006FE94A /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				39FE60DC29E42337006FE94A /* SearchResultTableViewCell.swift */,
+				39FE60DD29E42337006FE94A /* SearchResultTableViewCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +362,8 @@
 			files = (
 				39FE606F29E417D8006FE94A /* LaunchScreen.storyboard in Resources */,
 				39FE606C29E417D8006FE94A /* Assets.xcassets in Resources */,
+				39FE60DF29E42337006FE94A /* SearchResultTableViewCell.xib in Resources */,
+				39FE60CE29E4214D006FE94A /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,14 +381,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FE60D029E4217E006FE94A /* SearchViewModel.swift in Sources */,
 				39FE60A829E41C58006FE94A /* SearchAPI.swift in Sources */,
 				39FE60BF29E41ED4006FE94A /* SearchResultAdaptor.swift in Sources */,
 				39FE60A129E41A67006FE94A /* SearchResultsResponseDto.swift in Sources */,
+				39FE60D629E422C8006FE94A /* UIViewControllerFromNib.swift in Sources */,
+				39FE60DA29E422F5006FE94A /* UITableView.swift in Sources */,
 				39FE60C429E41FCB006FE94A /* SearchMusicImpl.swift in Sources */,
 				39FE60BD29E41EC0006FE94A /* SearchResult.swift in Sources */,
+				39FE60D829E422DE006FE94A /* ReusableView.swift in Sources */,
 				39FE609F29E41A54006FE94A /* SearchResultDto.swift in Sources */,
 				39FE609B29E419DE006FE94A /* RestClientImpl.swift in Sources */,
+				39FE60D429E4229B006FE94A /* Coordinator.swift in Sources */,
+				39FE60D229E421B4006FE94A /* SearchCoordinator.swift in Sources */,
 				39FE60AF29E41CCC006FE94A /* StringUrlEncoded.swift in Sources */,
+				39FE60DE29E42337006FE94A /* SearchResultTableViewCell.swift in Sources */,
 				39FE60B729E41E69006FE94A /* SearchMusicRespository.swift in Sources */,
 				39FE60B929E41E7F006FE94A /* SearchMusicRespositoryImpl.swift in Sources */,
 				39FE60C229E41FB2006FE94A /* SearchMusic.swift in Sources */,
@@ -340,6 +403,7 @@
 				39FE60A629E41C43006FE94A /* iTunesSearchAPIService.swift in Sources */,
 				39FE609729E419B0006FE94A /* Endpoint.swift in Sources */,
 				39FE60AA29E41C6E006FE94A /* SearchAPIError.swift in Sources */,
+				39FE60CD29E4214D006FE94A /* SearchViewController.swift in Sources */,
 				39FE606329E417D5006FE94A /* AppDelegate.swift in Sources */,
 				39FE60A329E41C11006FE94A /* SearchErrorDto.swift in Sources */,
 				39FE60AC29E41C82006FE94A /* iTunesSearchAPIServiceImpl.swift in Sources */,
