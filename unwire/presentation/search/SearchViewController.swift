@@ -12,8 +12,6 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     private var cancelables = [AnyCancellable]()
@@ -23,6 +21,8 @@ class SearchViewController: UIViewController {
     var viewModel: SearchViewModel!
     
     var coordinator: SearchCoordinator?
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,13 @@ class SearchViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         
-        navigationItem.titleView = searchBar
+        searchController.searchResultsUpdater = self
+        
+        tableView.tableHeaderView = searchController.searchBar
+        
         navigationItem.title = NSLocalizedString("search_music.title", comment: "Search Music screen title")
         
-        searchBar.placeholder = NSLocalizedString("search_music.placeholder", comment: "Search bar placeholder")
-        searchBar.delegate = self
+        searchController.searchBar.placeholder = NSLocalizedString("search_music.placeholder", comment: "Search bar placeholder")
         
         viewModel.$state.sink { [weak self] state in
             switch(state){
@@ -58,13 +60,9 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.searchText = searchText
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        viewModel.searchText = searchController.searchBar.text ?? ""
     }
 }
 
