@@ -28,7 +28,7 @@ Carthage/Checkouts/
 # Swift Package Manager
 .build/
 Packages/
-*.xcodeproj
+# *.xcodeproj
 
 # Miscellaneous
 xcuserdata/
