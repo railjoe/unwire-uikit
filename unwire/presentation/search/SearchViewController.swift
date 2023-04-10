@@ -35,7 +35,9 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         
         navigationItem.titleView = searchBar
+        navigationItem.title = NSLocalizedString("search_music.title", comment: "Search Music screen title")
         
+        searchBar.placeholder = NSLocalizedString("search_music.placeholder", comment: "Search bar placeholder")
         searchBar.delegate = self
         
         viewModel.$state.sink { [weak self] state in
@@ -93,12 +95,19 @@ class SearchResultDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(state) {
         case .initial:
+            tableView.hideEmptyView()
             return 0
         case .loading:
             return 0
         case let .success(results):
+            if results.isEmpty {
+                tableView.showEmptyView(title: NSLocalizedString("search_music.no_results_title", comment: ""), message: NSLocalizedString("search_music.no_results_message", comment: ""))
+            } else {
+                tableView.hideEmptyView()
+            }
             return results.count
         case .failure(_):
+            tableView.showEmptyView(title: NSLocalizedString("search_music.error_title", comment: ""), message: NSLocalizedString("search_music.error_message", comment: ""))
             return 0
         default:
             return 0

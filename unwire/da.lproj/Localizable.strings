@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  unwire
+
+  Created by Jovan Stojanov on 10.4.23..
+  
+*/
+
+"search_music.title" = "Search Music";
+
+"search_music.placeholder" = "Search music";
+
+"search_music.no_results_title" = "No Results";
+
+"search_music.no_results_message" = "Try a new search.";
+
+"search_music.error_title" = "Error";
+
+"search_music.error_message" = "Try a new search.";

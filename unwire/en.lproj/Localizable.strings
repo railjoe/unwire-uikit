@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  unwire
+
+  Created by Jovan Stojanov on 10.4.23..
+  
+*/
+
+"search_music.title" = "Søg efter musik";
+
+"search_music.placeholder" = "Søg efter musik";
+
+"search_music.no_results_title" = "Ingen resultater";
+
+"search_music.no_results_message" = "Prøv en ny søgning.";
+
+"search_music.error_title" = "Fejl";
+
+"search_music.error_message" = "Prøv en ny søgning.";

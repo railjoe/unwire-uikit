@@ -11,6 +11,8 @@
 		391FADBE29E424EC00C1AA37 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391FADBD29E424EC00C1AA37 /* ImageLoader.swift */; };
 		391FADC029E424FB00C1AA37 /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391FADBF29E424FB00C1AA37 /* UIImageLoader.swift */; };
 		391FADC229E4251E00C1AA37 /* UIImageViewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391FADC129E4251E00C1AA37 /* UIImageViewLoader.swift */; };
+		391FADC529E4266F00C1AA37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 391FADC729E4266F00C1AA37 /* Localizable.strings */; };
+		391FADCA29E426E800C1AA37 /* UITableViewEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391FADC929E426E800C1AA37 /* UITableViewEmptyView.swift */; };
 		39FE606329E417D5006FE94A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE606229E417D5006FE94A /* AppDelegate.swift */; };
 		39FE606C29E417D8006FE94A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FE606B29E417D8006FE94A /* Assets.xcassets */; };
 		39FE606F29E417D8006FE94A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FE606D29E417D8006FE94A /* LaunchScreen.storyboard */; };
@@ -61,6 +63,9 @@
 		391FADBD29E424EC00C1AA37 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		391FADBF29E424FB00C1AA37 /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
 		391FADC129E4251E00C1AA37 /* UIImageViewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewLoader.swift; sourceTree = "<group>"; };
+		391FADC629E4266F00C1AA37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		391FADC829E4268100C1AA37 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		391FADC929E426E800C1AA37 /* UITableViewEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewEmptyView.swift; sourceTree = "<group>"; };
 		39FE605F29E417D5006FE94A /* unwire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unwire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FE606229E417D5006FE94A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39FE606B29E417D8006FE94A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +160,7 @@
 				39FE606B29E417D8006FE94A /* Assets.xcassets */,
 				39FE606D29E417D8006FE94A /* LaunchScreen.storyboard */,
 				39FE607029E417D8006FE94A /* Info.plist */,
+				391FADC729E4266F00C1AA37 /* Localizable.strings */,
 			);
 			path = unwire;
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 				39FE60D729E422DE006FE94A /* ReusableView.swift */,
 				39FE60D929E422F5006FE94A /* UITableView.swift */,
 				391FADC129E4251E00C1AA37 /* UIImageViewLoader.swift */,
+				391FADC929E426E800C1AA37 /* UITableViewEmptyView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -363,6 +370,7 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
 			);
 			mainGroup = 39FE605629E417D5006FE94A;
 			productRefGroup = 39FE606029E417D5006FE94A /* Products */;
@@ -380,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391FADC529E4266F00C1AA37 /* Localizable.strings in Resources */,
 				39FE606F29E417D8006FE94A /* LaunchScreen.storyboard in Resources */,
 				39FE606C29E417D8006FE94A /* Assets.xcassets in Resources */,
 				39FE60DF29E42337006FE94A /* SearchResultTableViewCell.xib in Resources */,
@@ -401,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391FADCA29E426E800C1AA37 /* UITableViewEmptyView.swift in Sources */,
 				39FE60D029E4217E006FE94A /* SearchViewModel.swift in Sources */,
 				39FE60A829E41C58006FE94A /* SearchAPI.swift in Sources */,
 				39FE60BF29E41ED4006FE94A /* SearchResultAdaptor.swift in Sources */,
@@ -455,6 +465,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		391FADC729E4266F00C1AA37 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				391FADC629E4266F00C1AA37 /* en */,
+				391FADC829E4268100C1AA37 /* da */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		39FE606D29E417D8006FE94A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -470,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -530,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
