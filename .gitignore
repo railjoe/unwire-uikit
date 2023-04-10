@@ -1,0 +1,42 @@
+# Xcode
+.DS_Store
+*/.DS_Store
+*.pbxuser
+*.xccheckout
+*.xcscmblueprint
+xcuserdata/
+project.xcworkspace/
+
+# Build artifacts
+build/
+*.o
+*.~bc
+*.swp
+*.lock
+*.log
+
+# CocoaPods
+Pods/
+*.lock
+DerivedData/
+Manifest.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Swift Package Manager
+.build/
+Packages/
+*.xcodeproj
+
+# Miscellaneous
+xcuserdata/
+.idea/
+*.iml
+*.orig
+*.bak
+*.tmp
+*.zip
+*.tar.gz
+
