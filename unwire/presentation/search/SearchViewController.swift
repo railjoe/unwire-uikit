@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = SearchViewModel()
+        assert(viewModel != nil, "ViewModel must initalized before usage")
         
         tableView.register(nib: SearchResultTableViewCell.self)
         

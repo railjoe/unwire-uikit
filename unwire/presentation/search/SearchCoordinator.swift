@@ -9,16 +9,20 @@ import UIKit
 
 final class SearchCoordinator: Coordinator {
     
+    private let repository: SearchMusicRespository!
+    
     var navigationController: UINavigationController
     
     var childCoordinators = [Coordinator]()
     
     init(navigationController: UINavigationController){
         self.navigationController = navigationController
+        self.repository = SearchMusicRespositoryImpl()
     }
     
     func start() {
         let searchViewController = SearchViewController.loadFromNib()
+        searchViewController.viewModel = SearchViewModel(searchMusic: SearchMusicImpl(repository: repository))
         navigationController.pushViewController(searchViewController, animated: false)
     }
     
