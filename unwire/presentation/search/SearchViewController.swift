@@ -118,6 +118,7 @@ class SearchResultDataSource: NSObject, UITableViewDataSource {
             } else {
                 cell.releaseDateLabel.text = nil
             }
+            cell.artworkImageView.loadImage(result.artworkURL)
             cell.shortDescriptionLabel.text = result.shortDescription
         default:
             break

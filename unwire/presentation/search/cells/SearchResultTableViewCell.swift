@@ -30,5 +30,6 @@ class SearchResultTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         artworkImageView.image = nil
+        artworkImageView.cancelImageLoad()
     }
 }
