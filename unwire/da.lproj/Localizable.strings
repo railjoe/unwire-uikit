@@ -6,14 +6,14 @@
   
 */
 
-"search_music.title" = "Search Music";
+"search_music.title" = "Søg efter musik";
 
-"search_music.placeholder" = "Search music";
+"search_music.placeholder" = "Søg efter musik";
 
-"search_music.no_results_title" = "No Results";
+"search_music.no_results_title" = "Ingen resultater";
 
-"search_music.no_results_message" = "Try a new search.";
+"search_music.no_results_message" = "Prøv en ny søgning.";
 
-"search_music.error_title" = "Error";
+"search_music.error_title" = "Fejl";
 
-"search_music.error_message" = "Try a new search.";
+"search_music.error_message" = "Prøv en ny søgning.";
