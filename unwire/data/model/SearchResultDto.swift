@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct SearchResultDto: Codable {
+struct SearchResultDto: Codable, Equatable {
     let wrapperType, kind: String?
-    let artistID, collectionID, trackID: Int?
+    let trackID: Int
+    let artistID, collectionID : Int?
     let artistName, collectionName, trackName, collectionCensoredName: String?
     let trackCensoredName: String?
     let collectionArtistID: Int?
@@ -38,5 +39,9 @@ struct SearchResultDto: Codable {
         case trackViewURL = "trackViewUrl"
         case previewURL = "previewUrl"
         case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness, trackExplicitness, discCount, discNumber, trackCount, trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable
+    }
+    
+    static func == (lhs: SearchResultDto, rhs: SearchResultDto) -> Bool {
+        return lhs.trackID == rhs.trackID
     }
 }

@@ -10,37 +10,66 @@ import Combine
 
 class SearchViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    var tableView = UITableView(frame: CGRectZero, style: .plain)
     
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    var activityIndicatorView = UIActivityIndicatorView(style: .medium)
     
     private var cancelables = [AnyCancellable]()
     
     private var dataSource = SearchResultDataSource()
     
-    var viewModel: SearchViewModel!
+    var viewModel: SearchViewModel
     
     var coordinator: SearchCoordinator?
     
     let searchController = UISearchController(searchResultsController: nil)
     
+    required init(viewModel: SearchViewModel){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        assert(viewModel != nil, "ViewModel must initalized before usage")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        view.addSubview(tableView)
+          
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
         
         tableView.register(nib: SearchResultTableViewCell.self)
         
         tableView.dataSource = dataSource
         tableView.delegate = self
         
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicatorView)
+        
+        NSLayoutConstraint.activate([
+            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+        activityIndicatorView.startAnimating()
+        
         searchController.searchResultsUpdater = self
         
         tableView.tableHeaderView = searchController.searchBar
         
-        navigationItem.title = NSLocalizedString("search_music.title", comment: "Search Music screen title")
+        navigationItem.title = viewModel.titleText
         
-        searchController.searchBar.placeholder = NSLocalizedString("search_music.placeholder", comment: "Search bar placeholder")
+        searchController.searchBar.placeholder = viewModel.searchBarPlaceholderText
         
         viewModel.$state.sink { [weak self] state in
             switch(state){
@@ -48,7 +77,9 @@ class SearchViewController: UIViewController {
                 self?.activityIndicatorView.stopAnimating()
             case .loading:
                 self?.activityIndicatorView.startAnimating()
-            case .failure(_):
+            case .failure(_, _):
+                self?.activityIndicatorView.stopAnimating()
+            case .empty(_, _):
                 self?.activityIndicatorView.stopAnimating()
             case .success(_):
                 self?.activityIndicatorView.stopAnimating()
@@ -62,7 +93,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.searchText = searchController.searchBar.text ?? ""
+        viewModel.onChange(searchController.searchBar.text ?? "")
     }
 }
 
@@ -76,62 +107,6 @@ extension SearchViewController: UITableViewDelegate {
         default:
             break
         }
-    }
-}
-
-class SearchResultDataSource: NSObject, UITableViewDataSource {
-    
-    private let dateFormat = DateFormatter()
-    
-    var state : SearchViewModel.UiState?
-    
-    override init() {
-        dateFormat.dateStyle = .short
-        dateFormat.timeZone = .none
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch(state) {
-        case .initial:
-            tableView.hideEmptyView()
-            return 0
-        case .loading:
-            return 0
-        case let .success(results):
-            if results.isEmpty {
-                tableView.showEmptyView(title: NSLocalizedString("search_music.no_results_title", comment: ""), message: NSLocalizedString("search_music.no_results_message", comment: ""))
-            } else {
-                tableView.hideEmptyView()
-            }
-            return results.count
-        case .failure(_):
-            tableView.showEmptyView(title: NSLocalizedString("search_music.error_title", comment: ""), message: NSLocalizedString("search_music.error_message", comment: ""))
-            return 0
-        default:
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: SearchResultTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        
-        switch(state){
-        case let .success(results):
-            let result = results[indexPath.row]
-            cell.trackNameLabel.text = result.trackName
-            cell.artistNameLabel.text = result.artistName
-            if let releaseDate = result.releaseDate {
-                cell.releaseDateLabel.text = dateFormat.string(from: releaseDate)
-            } else {
-                cell.releaseDateLabel.text = nil
-            }
-            cell.artworkImageView.loadImage(result.artworkURL)
-            cell.shortDescriptionLabel.text = result.shortDescription
-        default:
-            break
-        }
-        
-        return cell
     }
 }
 

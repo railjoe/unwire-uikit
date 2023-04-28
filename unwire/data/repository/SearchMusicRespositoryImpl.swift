@@ -14,12 +14,13 @@ class SearchMusicRespositoryImpl: SearchMusicRespository {
         self.service = service
     }
     
-    func search(term: String, country: String, limit: Int) -> AnyPublisher<[SearchResult], SearchAPIError> {
-        return service.search(term: term, media: MediaType.music, entity: MediaTypeEntity.musicTrack, country: country, limit: limit)
+    func search(term: String, country: String, limit: Int) async -> Result<[SearchResult], SearchAPIError> {
+        let adaptor = SearchResultAdaptor()
+        return await service.search(term: term, media: MediaType.music, entity: MediaTypeEntity.musicTrack, country: country, limit: limit)
             .map({ response in
                 response.results?.map({ dto in
-                    SearchResultAdaptor.toSearchResult(dto)
+                    adaptor.toSearchResult(dto)
                 }) ?? []
-            }).eraseToAnyPublisher()
+            })
     }
 }

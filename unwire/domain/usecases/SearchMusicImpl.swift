@@ -5,8 +5,6 @@
 //  Created by Jovan Stojanov on 10.4.23..
 //
 
-import Combine
-
 class SearchMusicImpl: SearchMusic {
     private let repository: SearchMusicRespository
     
@@ -14,8 +12,8 @@ class SearchMusicImpl: SearchMusic {
         self.repository = repository
     }
     
-    func invoke(term: String, country: String, limit: Int) -> AnyPublisher<Result<[SearchResult], SearchAPIError>, Never> {
-        repository.search(term: term, country: country, limit: limit).asResult()
+    func invoke(term: String, country: String, limit: Int) async -> Result<[SearchResult], SearchAPIError> {
+        return await repository.search(term: term, country: country, limit: limit)
     }
 }
 

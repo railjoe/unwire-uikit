@@ -7,8 +7,6 @@
 
 import Foundation
 
-private let baseURL = URL(string: "https://itunes.apple.com/")
-
 enum MediaType: String {
     case movie, podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
 }
@@ -18,14 +16,28 @@ enum MediaTypeEntity: String {
 }
 
 enum SearchAPI: Endpoint {
-    var url: URL {
-        return URL(string: self.path, relativeTo: baseURL)!
+    
+    private enum Constants {
+        static let scheme = "https"
+        static let host = "itunes.apple.com"
+        static let searchPath = "search"
     }
     
-    var path: String {
+    var url: URL? {
         switch self {
         case .search(let term, let media, let entity, let country, let limit):
-            return "\(country)/search?term=\(term.urlEncoded ?? "")&media=\(media)&entity=\(entity)&country=\(country)&limit=\(limit)"
+            var components = URLComponents()
+            components.host = Constants.host
+            components.scheme = Constants.scheme
+            components.path = "/\(country)/search"
+            components.queryItems = [
+                URLQueryItem(name: "term", value: term),
+                URLQueryItem(name: "media", value: media.rawValue),
+                URLQueryItem(name: "entity", value: entity.rawValue),
+                URLQueryItem(name: "country", value: country),
+                URLQueryItem(name: "limit", value: String(limit)),
+            ]
+            return components.url
         }
     }
     

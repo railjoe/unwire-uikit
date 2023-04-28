@@ -16,12 +16,18 @@ class UIImageLoader {
     
     private var uuidMap = [UIImageView: UUID]()
     
+    private let queue = DispatchQueue(label: "image-loader-queue",attributes: [.concurrent])
+    
     private init() {}
     
     func load(_ url: URL?, for imageView: UIImageView) {
         
         let token = imageLoader.loadImage(url) { result in
-            defer { self.uuidMap.removeValue(forKey: imageView) }
+            defer {
+                self.queue.async(flags:.barrier) { [weak self] in
+                    self?.uuidMap.removeValue(forKey: imageView)
+                }
+            }
             do {
                 let image = try result.get()
                 DispatchQueue.main.async {
@@ -31,14 +37,20 @@ class UIImageLoader {
             }
         }
         if let token = token {
-            uuidMap[imageView] = token
+            queue.async(flags:.barrier) { [weak self] in
+                self?.uuidMap[imageView] = token
+            }
         }
     }
     
     func cancel(for imageView: UIImageView) {
-        if let uuid = uuidMap[imageView] {
-            imageLoader.cancelLoad(uuid)
-            uuidMap.removeValue(forKey: imageView)
+        queue.async { [weak self] in
+            if let uuid = self?.uuidMap[imageView] {
+                self?.imageLoader.cancelLoad(uuid)
+                self?.queue.async(flags:.barrier) { [weak self] in
+                    self?.uuidMap.removeValue(forKey: imageView)
+                }
+            }
         }
     }
 }

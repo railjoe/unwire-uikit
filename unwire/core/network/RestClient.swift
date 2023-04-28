@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import Combine
 
 protocol RestClient {
-    func get<E: Endpoint>(_ endpoint: E) -> AnyPublisher<Data, Error>
+    func get<E: Endpoint>(_ endpoint: E) async -> Result<Data, RestClientErrors>
 }

@@ -8,5 +8,5 @@
 import Combine
 
 protocol SearchMusicRespository {
-    func search(term: String, country: String, limit: Int) -> AnyPublisher<[SearchResult], SearchAPIError>
+    func search(term: String, country: String, limit: Int) async -> Result<[SearchResult], SearchAPIError>
 }

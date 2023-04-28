@@ -8,6 +8,6 @@
 import Combine
 
 protocol SearchMusic {
-    func invoke(term: String, country: String, limit: Int) -> AnyPublisher<Result<[SearchResult], SearchAPIError>, Never>
+    func invoke(term: String, country: String, limit: Int) async -> Result<[SearchResult], SearchAPIError>
 }
 

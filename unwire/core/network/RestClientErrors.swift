@@ -10,5 +10,6 @@ import Foundation
 enum RestClientErrors: Error {
     case requestFailed(error: Error)
     case responseFailed(code: Int, data: Data)
+    case unknown
 }
 

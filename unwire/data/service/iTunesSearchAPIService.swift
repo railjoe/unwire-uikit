@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol iTunesSearchAPIService {
-    func search(term: String, media: MediaType, entity: MediaTypeEntity, country: String, limit: Int) -> AnyPublisher<SearchResultsResponseDto, SearchAPIError>
+    func search(term: String, media: MediaType, entity: MediaTypeEntity, country: String, limit: Int) async -> Result<SearchResultsResponseDto, SearchAPIError>
 }

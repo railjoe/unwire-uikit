@@ -7,12 +7,17 @@
 
 import Foundation
 
-struct SearchResultsResponseDto: Codable {
+struct SearchResultsResponseDto: Codable, Equatable {
+    
     let resultCount: Int?
     let results: [SearchResultDto]?
     
     enum CodingKeys: String, CodingKey {
         case resultCount
         case results
+    }
+    
+    static func == (lhs: SearchResultsResponseDto, rhs: SearchResultsResponseDto) -> Bool {
+        return lhs.resultCount == rhs.resultCount && lhs.results == rhs.results
     }
 }
