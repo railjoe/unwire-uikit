@@ -19,10 +19,10 @@
 		39BE83AF29FB9FA30024D237 /* SearchMusicRespositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE83AE29FB9FA30024D237 /* SearchMusicRespositoryTests.swift */; };
 		39BE83B229FB9FED0024D237 /* MockiTunesSearchAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE83B129FB9FED0024D237 /* MockiTunesSearchAPIService.swift */; };
 		39BE83BD29FBAAEE0024D237 /* iTunesSearchAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE83BC29FBAAEE0024D237 /* iTunesSearchAPIServiceTests.swift */; };
-		39BE83C029FBAB4B0024D237 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE83BF29FBAB4B0024D237 /* MockURLProtocol.swift */; };
 		39BE83C329FBAC490024D237 /* mock_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BE83C129FBAC490024D237 /* mock_response.json */; };
 		39BE83C429FBAC490024D237 /* empty_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BE83C229FBAC490024D237 /* empty_response.json */; };
 		39BE83C629FBAC5D0024D237 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE83C529FBAC5D0024D237 /* Mockable.swift */; };
+		39BE83C829FBDF7D0024D237 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE83C729FBDF7D0024D237 /* MockURLProtocol.swift */; };
 		39FE606329E417D5006FE94A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE606229E417D5006FE94A /* AppDelegate.swift */; };
 		39FE606C29E417D8006FE94A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FE606B29E417D8006FE94A /* Assets.xcassets */; };
 		39FE606F29E417D8006FE94A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FE606D29E417D8006FE94A /* LaunchScreen.storyboard */; };
@@ -78,10 +78,10 @@
 		39BE83AE29FB9FA30024D237 /* SearchMusicRespositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicRespositoryTests.swift; sourceTree = "<group>"; };
 		39BE83B129FB9FED0024D237 /* MockiTunesSearchAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockiTunesSearchAPIService.swift; sourceTree = "<group>"; };
 		39BE83BC29FBAAEE0024D237 /* iTunesSearchAPIServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPIServiceTests.swift; sourceTree = "<group>"; };
-		39BE83BF29FBAB4B0024D237 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLProtocol.swift; path = unwireTests/MockURLProtocol.swift; sourceTree = SOURCE_ROOT; };
 		39BE83C129FBAC490024D237 /* mock_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_response.json; sourceTree = "<group>"; };
 		39BE83C229FBAC490024D237 /* empty_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty_response.json; sourceTree = "<group>"; };
 		39BE83C529FBAC5D0024D237 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		39BE83C729FBDF7D0024D237 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		39FE605F29E417D5006FE94A /* unwire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unwire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FE606229E417D5006FE94A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39FE606B29E417D8006FE94A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			children = (
 				39BE83C229FBAC490024D237 /* empty_response.json */,
 				39BE83C129FBAC490024D237 /* mock_response.json */,
-				39BE83BF29FBAB4B0024D237 /* MockURLProtocol.swift */,
+				39BE83C729FBDF7D0024D237 /* MockURLProtocol.swift */,
 				39BE83C529FBAC5D0024D237 /* Mockable.swift */,
 			);
 			path = Mock;
@@ -533,12 +533,12 @@
 				39BE83B229FB9FED0024D237 /* MockiTunesSearchAPIService.swift in Sources */,
 				391FADBB29E4248600C1AA37 /* SearchViewModelTests.swift in Sources */,
 				39BE83BD29FBAAEE0024D237 /* iTunesSearchAPIServiceTests.swift in Sources */,
+				39BE83C829FBDF7D0024D237 /* MockURLProtocol.swift in Sources */,
 				39FE607A29E417D8006FE94A /* SearchMusicTests.swift in Sources */,
 				39BE83AF29FB9FA30024D237 /* SearchMusicRespositoryTests.swift in Sources */,
 				39BE83A829FB9D080024D237 /* MockSearchMusicRespository.swift in Sources */,
 				39BE83A629FB9AE60024D237 /* MockSearchMusic.swift in Sources */,
 				39BE83C629FBAC5D0024D237 /* Mockable.swift in Sources */,
-				39BE83C029FBAB4B0024D237 /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

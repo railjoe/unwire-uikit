@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class RestClientImpl: RestClient {
     private let session: URLSession
