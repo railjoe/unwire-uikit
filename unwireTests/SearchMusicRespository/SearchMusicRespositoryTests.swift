@@ -31,7 +31,7 @@ final class SearchMusicRespositoryTests: XCTestCase {
     
     func testAPIServiceSuccess() async throws {
 
-        let searchResults: [SearchResultDto] = [SearchResultDto(wrapperType: nil, kind: nil, trackID: 0, artistID: nil, collectionID: nil, artistName: nil, collectionName: nil, trackName: nil, collectionCensoredName: nil, trackCensoredName: nil, collectionArtistID: nil, collectionArtistName: nil, artistViewURL: nil, collectionViewURL: nil, trackViewURL: nil, previewURL: nil, artworkUrl30: nil, artworkUrl60: nil, artworkUrl100: nil, collectionPrice: nil, trackPrice: nil, releaseDate: nil, collectionExplicitness: nil, trackExplicitness: nil, discCount: nil, discNumber: nil, trackCount: nil, trackNumber: nil, trackTimeMillis: nil, country: nil, currency: nil, primaryGenreName: nil, isStreamable: nil)]
+        let searchResults: [SearchResultDto] = [SearchResultDto(trackID: 0)]
         
         let mockResult = SearchResultsResponseDto(resultCount: searchResults.count, results: searchResults)
         

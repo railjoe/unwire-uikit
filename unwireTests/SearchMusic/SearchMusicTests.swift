@@ -42,11 +42,13 @@ final class SearchMusicTests: XCTestCase {
     
     func testNoResults() async throws {
 
-        mockSearchMusicRespository.result = Result<[SearchResult], SearchAPIError>.success([])
+        let searchResults: [SearchResult] = []
+        
+        mockSearchMusicRespository.result = Result<[SearchResult], SearchAPIError>.success(searchResults)
         let result = await searchMusic
             .invoke(term: "Lukas Graham", country: "dk", limit: 50)
         
-        XCTAssertEqual(result, .success([]))
+        XCTAssertEqual(result, .success(searchResults))
     }
     
     func testError() async throws {

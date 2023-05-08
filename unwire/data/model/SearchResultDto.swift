@@ -44,4 +44,44 @@ struct SearchResultDto: Codable, Equatable {
     static func == (lhs: SearchResultDto, rhs: SearchResultDto) -> Bool {
         return lhs.trackID == rhs.trackID
     }
+    
+    #if DEBUG
+    
+    init(trackID: Int) {
+        self.trackID = trackID
+        wrapperType = nil
+        kind = nil
+        artistID = nil
+        collectionID = nil
+        artistName = nil
+        collectionName = nil
+        trackName = nil
+        collectionCensoredName = nil
+        trackCensoredName = nil
+        collectionArtistID = nil
+        collectionArtistName = nil
+        artistViewURL = nil
+        collectionViewURL = nil
+        trackViewURL = nil
+        previewURL = nil
+        artworkUrl30 = nil
+        artworkUrl60 = nil
+        artworkUrl100 = nil
+        collectionPrice = nil
+        trackPrice = nil
+        releaseDate = nil
+        collectionExplicitness = nil
+        trackExplicitness = nil
+        discCount = nil
+        discNumber = nil
+        trackCount = nil
+        trackNumber = nil
+        trackTimeMillis = nil
+        country = nil
+        currency = nil
+        primaryGenreName = nil
+        isStreamable = nil
+    }
+    
+    #endif
 }

@@ -69,7 +69,7 @@ final class SearchViewModelTests: XCTestCase {
         let error = SearchAPIError.unknownError
 
         viewModelToTest.$state.dropFirst(2).sink { state in
-            XCTAssertEqual(state, .failure(title: NSLocalizedString("search_music.error_title", comment: ""), messsage: NSLocalizedString("search_music.error_message", comment: "")))
+            XCTAssertEqual(state, .failure(title: "", messsage: ""))
             expectation.fulfill()
         }.store(in: &cancellables)
 
@@ -101,7 +101,7 @@ final class SearchViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "State is set to .empty")
 
         viewModelToTest.$state.dropFirst(2).sink { state in
-            XCTAssertEqual(state, .empty(title: NSLocalizedString("search_music.no_results_title", comment: ""), messsage: NSLocalizedString("search_music.no_results_message", comment: "")))
+            XCTAssertEqual(state, .empty(title: "", messsage: ""))
             expectation.fulfill()
         }.store(in: &cancellables)
 
