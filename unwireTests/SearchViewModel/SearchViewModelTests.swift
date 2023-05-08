@@ -49,7 +49,7 @@ final class SearchViewModelTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "State is set to .loading")
 
-        let searchResults: [SearchResult] = [SearchResult(id: 0, trackName: "", artistName: "", shortDescription: "", artworkURL: nil, releaseDate: nil)]
+        let searchResults: [SearchResult] = [SearchResult(id: 0)]
 
         viewModelToTest.$state.dropFirst().sink { state in
             XCTAssertEqual(state, .loading)

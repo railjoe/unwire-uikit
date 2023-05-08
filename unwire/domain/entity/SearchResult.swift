@@ -27,4 +27,15 @@ struct SearchResult: Identifiable, Equatable {
     static func == (lhs: SearchResult, rhs: SearchResult) -> Bool {
         return lhs.id == rhs.id
     }
+    
+    #if DEBUG
+    init(id: Int) {
+        self.id = id
+        self.trackName = nil
+        self.artistName = nil
+        self.shortDescription = nil
+        self.artworkURL = nil
+        self.releaseDate = nil
+    }
+    #endif
 }
