@@ -11,6 +11,12 @@ import UIKit
 
 class SearchViewModel: ObservableObject {
     
+    private struct Constants {
+        static let country = "dk"
+        static let count = 50
+        static let delay = 0.3
+    }
+    
     private let searchMusic: SearchMusic
     
     private var cancelables = [AnyCancellable]()
@@ -25,7 +31,6 @@ class SearchViewModel: ObservableObject {
     
     init(searchMusic: SearchMusic = SearchMusicImpl()) {
         self.searchMusic = searchMusic
-
     }
     
     func onChange(_ text: String) {
@@ -36,8 +41,8 @@ class SearchViewModel: ObservableObject {
                 await updateState(with: .initial)
             } else {
                 let task = Task.detached { [weak self] in
-                    try await Task.sleep(for: .seconds(0.3))
-                    return await self?.searchMusic.invoke(term: text, country: "dk", limit: 50)
+                    try await Task.sleep(for: .seconds(Constants.delay))
+                    return await self?.searchMusic.invoke(term: text, country: Constants.country, limit: Constants.count)
                 }
                 searchTask = task
                 
